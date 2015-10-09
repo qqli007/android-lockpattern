@@ -4,6 +4,7 @@
 * Version: `5.0.1` (September 2nd, 2015)
 * Project page: <http://haibison.github.io/android-lockpattern/>
 * Demo: <https://play.google.com/store/apps/details?id=group.pals.android.lib.ui.lockpattern.demo>
+* Simple Demo: applock
 * For developers: [Wiki], [API documentation].
 
 --
