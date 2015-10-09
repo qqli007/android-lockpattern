@@ -36,8 +36,8 @@
     <string name="alp_42447968_msg_your_new_unlock_pattern">Your new unlock pattern:</string>
 
     <plurals name="alp_42447968_pmsg_connect_x_dots">
-        <item quantity="one">Connect at least %1$d dot.\nTry again…</item>
-        <item quantity="other">Connect at least %1$d dots.\nTry again…</item>
+        <item quantity="one">Connect at least %1$d dot.Try again…</item>
+        <item quantity="other">Connect at least %1$d dots.Try again…</item>
     </plurals>
 
 </resources>

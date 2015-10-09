@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
    Copyright 2012 Hai Bison
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,8 +15,8 @@
 -->
 
 <manifest
-    package="haibison.android.lockpattern"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="haibison.android.lockpattern">
 
     <application>
         <activity
@@ -26,6 +25,13 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:screenOrientation="user"
-            android:theme="@style/Alp_42447968.Theme.Light"/>
+            android:theme="@style/Alp_42447968.Theme.Light" />
+
+        <activity
+            android:name="haibison.android.lockpattern.SimpleLockPatternActivity"
+            android:configChanges="keyboard|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Alp_42447968.Theme.Light" />
+
     </application>
 </manifest>
