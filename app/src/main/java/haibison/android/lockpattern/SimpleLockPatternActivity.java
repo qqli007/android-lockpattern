@@ -245,10 +245,7 @@ public class SimpleLockPatternActivity extends Activity {
                     getIntent().putExtra(EXTRA_PATTERN, (char[]) result);
 
                     mBtnOkCmd = ButtonOkCommand.DONE;
-                    mLockPatternView.clearPattern();
-                    mTextInfo.setText(R.string.alp_42447968_msg_redraw_pattern_to_confirm);
-                    mBtnConfirm.setEnabled(false);
-                    mFooter.setVisibility(View.VISIBLE);
+                    mLockPatternView.postDelayed(mLockPatternViewReloader, DELAY_TIME_TO_RELOAD_LOCK_PATTERN_VIEW / 2);
 
                 }
 
@@ -424,8 +421,10 @@ public class SimpleLockPatternActivity extends Activity {
                 if (mBtnOkCmd == ButtonOkCommand.CONTINUE) {
                     getIntent().removeExtra(EXTRA_PATTERN);
                     mTextInfo.setText(R.string.alp_42447968_msg_draw_an_unlock_pattern);
-                } else
+                } else {
                     mTextInfo.setText(R.string.alp_42447968_msg_redraw_pattern_to_confirm);
+                    mFooter.setVisibility(View.VISIBLE);
+                }
             } else if (ACTION_COMPARE_PATTERN.equals(mActionPattern)) {
                 mLockPatternView.setDisplayMode(LockPatternView.DisplayMode.Correct);
                 mTextInfo.setText(R.string.alp_42447968_msg_draw_pattern_to_unlock);

@@ -8,8 +8,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:gravity="center_horizontal"
+        android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textIsSelectable="true" />
 
@@ -62,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:enabled="false"
-                android:text="@string/alp_42447968_cmd_continue" />
+                android:text="@string/alp_42447968_cmd_confirm" />
         </LinearLayout>
     </LinearLayout>
 
