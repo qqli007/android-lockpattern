@@ -3,11 +3,15 @@ package com.example.lz.applock;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
+
+import java.util.ArrayList;
 
 import haibison.android.lockpattern.LockPatternActivity;
 import haibison.android.lockpattern.SimpleLockPatternActivity;
@@ -19,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button create_btn;
     private Button verify_btn;
     private Button open_btn;
+    private Button open_fe_btn;
     char[] savedPattern;
 
 
@@ -59,6 +64,44 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SimpleLockPatternActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        open_fe_btn = (Button) findViewById(R.id.open_fe_btn);
+        open_fe_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.xunlei.fileexplorer.lockpattern");
+                intent.putExtra("app_id", "shou_lei");
+                intent.putExtra("action_3rd", "action_open_private_folder");
+                startActivity(intent);
+            }
+        });
+
+        final EditText text1 = (EditText) findViewById(R.id.input_1);
+        final EditText text2 = (EditText) findViewById(R.id.input_2);
+
+        Button encrypt = (Button) findViewById(R.id.encrypt_btn);
+        encrypt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String temp1 = text1.getText().toString();
+                String temp2 = text2.getText().toString();
+
+                ArrayList<String> data = new ArrayList<String>();
+                if (!TextUtils.isEmpty(temp1)) {
+                    data.add(temp1);
+                }
+
+                if (!TextUtils.isEmpty(temp2)) {
+                    data.add(temp2);
+                }
+
+                Intent intent = new Intent("com.xunlei.fileexplorer.lockpattern");
+                intent.putExtra("app_id", "shou_lei");
+                intent.putExtra("action_3rd", "action_encrypt");
+                intent.putStringArrayListExtra("extra_encrypt_paths", data);
                 startActivity(intent);
             }
         });
