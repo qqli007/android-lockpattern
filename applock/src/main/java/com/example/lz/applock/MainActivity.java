@@ -106,6 +106,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button big = (Button) findViewById(R.id.big_file_btn);
+        big.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("xunlei.intent.action.FILE_CLEANUP");
+                intent.putExtra("app_id", "shou_lei");
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

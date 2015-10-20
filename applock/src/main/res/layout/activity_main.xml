@@ -75,4 +75,11 @@
         android:padding="10dp"
         android:text="转到私密文件夹" />
 
+    <Button
+        android:id="@+id/big_file_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:text="大文件清理" />
+
 </LinearLayout>
