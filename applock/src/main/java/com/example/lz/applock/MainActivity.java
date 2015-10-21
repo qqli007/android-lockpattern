@@ -4,14 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import haibison.android.lockpattern.LockPatternActivity;
 import haibison.android.lockpattern.SimpleLockPatternActivity;
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         open_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SimpleLockPatternActivity.class);
+                Intent intent = new Intent(MainActivity.this, TransActivity.class);
                 startActivity(intent);
             }
         });
@@ -102,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("app_id", "shou_lei");
                 intent.putExtra("action_3rd", "action_encrypt");
                 intent.putStringArrayListExtra("extra_encrypt_paths", data);
-                startActivity(intent);
+                startActivityForResult(intent, 5);
             }
         });
 
@@ -116,6 +119,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 5) {
+            if (resultCode == RESULT_OK) {
+                List<String> result =  data.getStringArrayListExtra("extra_encrypt_paths");
+                Log.d("0-0", "result=" + result);
+                if (result == null || result.size() <= 0) {
+                    Toast.makeText(this, "加密成功", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(this, "加密失败 " + result.get(0), Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 
     @Override

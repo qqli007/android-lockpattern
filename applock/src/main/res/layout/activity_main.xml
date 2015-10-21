@@ -39,7 +39,7 @@
         android:visibility="gone"
         android:padding="10dp"
         android:layout_marginBottom="20dp"
-        android:text="open pattern" />
+        android:text="透明 activity" />
 
 
     <Button
@@ -66,6 +66,7 @@
         android:inputType="text"
         android:hint="第二个地址"
         android:textSize="16sp"
+        android:visibility="gone"
         />
 
     <Button
@@ -79,6 +80,7 @@
         android:id="@+id/big_file_btn"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:padding="10dp"
         android:text="大文件清理" />
 
