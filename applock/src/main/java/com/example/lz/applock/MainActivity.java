@@ -128,10 +128,10 @@ public class MainActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 List<String> result =  data.getStringArrayListExtra("extra_encrypt_paths");
                 Log.d("0-0", "result=" + result);
-                if (result == null || result.size() <= 0) {
-                    Toast.makeText(this, "加密成功", Toast.LENGTH_LONG).show();
+                if (result != null && result.size() == 1) {
+                    Toast.makeText(this, "加密成功 " + result.get(0), Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "加密失败 " + result.get(0), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "加密失败", Toast.LENGTH_LONG).show();
                 }
             }
         }
